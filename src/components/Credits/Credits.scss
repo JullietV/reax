@@ -1,0 +1,30 @@
+
+.julls-app-credits {
+    position: relative;
+    margin-right: 15px;
+    margin-bottom: 15px;
+
+    img {
+        width: 50px;
+        border-radius: 50%;
+    }
+
+    &::before {
+        display: none;
+        content: 'Hecho con <3 por Jullietv';
+        position: absolute;
+        background: #4a4a4a;
+        color: #fff;
+        padding: 2px 8px;
+        border-radius: 2px;
+        top: calc(50% - 9px);
+        width: 186px;
+        font-size: .8rem;
+        font-family: 'Verdana', sans-serif;
+        left: 65px;
+    }
+
+    &:hover:before {
+        display: block;
+    }
+}
