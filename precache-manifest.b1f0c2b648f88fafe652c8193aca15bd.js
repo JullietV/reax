@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5e09cad98839b5d5da8a052458c2b349",
+    "revision": "8ca291eecfdcd336e86dee3b8c10a705",
     "url": "/reax/index.html"
   },
   {
@@ -8,16 +8,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/reax/static/css/2.abdcc3ff.chunk.css"
   },
   {
-    "revision": "04db86f46fb8ab9199c7",
-    "url": "/reax/static/css/main.0577d134.chunk.css"
+    "revision": "6fbbc95f6661445da9b6",
+    "url": "/reax/static/css/main.2dbb0484.chunk.css"
   },
   {
     "revision": "24ea381527990106b6a6",
     "url": "/reax/static/js/2.37520b63.chunk.js"
   },
   {
-    "revision": "04db86f46fb8ab9199c7",
-    "url": "/reax/static/js/main.3e5e85c5.chunk.js"
+    "revision": "6fbbc95f6661445da9b6",
+    "url": "/reax/static/js/main.4b7e4554.chunk.js"
   },
   {
     "revision": "ff99489a1ae51f001934",
