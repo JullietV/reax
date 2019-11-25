@@ -3,6 +3,8 @@
  * @version v1.0.0
  */
 
+ @import '../../variables';
+
 .reax-site-config {
     position: fixed;
     top: 50%;
@@ -30,7 +32,21 @@
 .dark {
     .reax-site-config {
         li {
-            color: white;
+            color: $body-text;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .reax-site-config {
+        left: 5px;
+
+        ul a i {
+            font-size: 20px;
+        }
+
+        span {
+            display: none;
         }
     }
 }

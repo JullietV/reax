@@ -21,7 +21,7 @@ const SiteConfig = (props) => {
                         {ctx.data.theme === 'dark'
                         ? <MDBIcon far icon="moon" />
                         : <MDBIcon far icon="sun" />}
-                        {ctx.data.theme}
+                        <span>{ctx.data.theme}</span>
                     </a>
                 </li>
             </ul>
