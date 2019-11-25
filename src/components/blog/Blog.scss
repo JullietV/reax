@@ -1,0 +1,55 @@
+/**
+ * Blog
+ * @version v1.0.0
+ */
+
+@import '../../variables';
+
+.reax-blog {
+    // background: $background-color;
+    min-height: 100vh;
+
+    &-wrapper {
+        padding: 100px 20px 0 20px;
+    }
+
+    .left-align {
+        float: left;
+        margin-right: 15px;
+    }
+
+    
+    .right-align {
+        float: right;
+        margin-left: 15px;
+    }
+
+    .full-width {
+        width: 100%;
+        display: block;
+    }
+
+    img {
+        max-width: 100%;
+        margin-bottom: 15px;
+        transition: .5s all ease;
+
+        &.right-align {
+            box-shadow: 7px 7px 0 $primary;
+        }
+
+        &.left-align {
+            box-shadow: -7px 7px 0 $primary;
+        }
+
+        &.full-width {
+            box-shadow: 7px 7px 0 $primary;
+        }
+    }
+}
+
+.dark {
+    .reax-blog {
+        background-color: $titles;
+    }
+}

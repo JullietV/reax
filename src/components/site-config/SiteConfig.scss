@@ -1,0 +1,36 @@
+/**
+ * SiteConfig
+ * @version v1.0.0
+ */
+
+.reax-site-config {
+    position: fixed;
+    top: 50%;
+    left: 15px;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: .8rem;
+
+            i {
+                font-size: 25px;
+                margin-bottom: 7px;
+            }
+        }
+    }
+}
+
+.dark {
+    .reax-site-config {
+        li {
+            color: white;
+        }
+    }
+}

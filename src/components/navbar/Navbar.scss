@@ -1,0 +1,108 @@
+/**
+ * Navbar
+ * @version v1.0.0
+ */
+
+ @import '../../variables';
+
+.reax-navbar {
+    background: white;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    z-index: 999;
+
+    &-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $background-color-darker;
+    }
+
+    &-brand {
+        padding: 0 20px;
+        h1 {
+            color: $primary;
+        }
+    }
+
+    &-menu {
+        ul {
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+            margin-bottom: 0;
+
+            a {
+                color: $body-text;
+                padding: 15px 45px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                
+                &:hover {
+                    color: $titles;
+                    cursor: pointer;
+                }
+            
+                &.active {
+                    color: $titles;
+                    border-bottom: 2px solid $primary;
+                    position: relative;
+                    font-weight: 600;
+                    color: $primary;
+    
+                    &:before {
+                        position: absolute;
+                        bottom: 0;
+                        left: calc(50% - 4px);
+                        content: '';
+                        width: 8px;
+                        height: 8px;
+                        border: 8px solid transparent;
+                        border-bottom-color: $primary;
+                    }
+    
+                    
+                }
+    
+                &:hover {
+                    text-decoration: none;
+                }
+
+                .fa, .fab, .fad, .fal, .far, .fas {
+                    padding: 0 20px;
+                    font-size: 25px
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .reax-navbar-menu ul a .fa, 
+    .reax-navbar-menu ul a .fab,
+     .reax-navbar-menu ul a .fad, 
+     .reax-navbar-menu ul a .fal, 
+     .reax-navbar-menu ul a .far, 
+     .reax-navbar-menu ul a .fas {
+        padding: 0 8px;
+        font-size: 25px
+    }
+}
+
+.dark {
+    .reax-navbar {
+        background: $titles;
+
+        &-brand h1 {
+            color: $background-color;
+        }
+
+        &-menu ul a:not(.active) {
+            color: $body-text;
+            &:hover {
+                color: $background-color-darker;
+            }
+        }
+    }
+}

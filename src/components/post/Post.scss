@@ -1,0 +1,79 @@
+/**
+ * Post
+ * @version v1.0.0
+ */
+
+ @import '../../_variables.scss';
+
+.reax-post {
+    color: $body-text;
+
+    &-header {
+        h2 {
+            position: relative;
+            z-index: 3;
+            display: inline;
+            &:before {
+                content: '';
+                opacity: .8;
+                z-index: 1;
+                position: absolute;
+                bottom: 1px;
+                right: -4px;
+                display: block;
+                width: 40px;
+                height: 8px;
+                background: $primary;
+            }
+        }
+    }
+
+    &-comments {
+        margin-top: 30px;
+        padding-top: 15px;
+        border-top: 1px solid $background-color-darker;
+        
+        h3 {
+            position: relative;
+            z-index: 3;
+            display: inline;
+            &:before {
+                content: '';
+                opacity: .8;
+                z-index: 1;
+                position: absolute;
+                bottom: 1px;
+                right: -4px;
+                display: block;
+                width: 40px;
+                height: 6px;
+                background: $primary;
+            }
+        }
+
+        &-create {
+            margin-bottom: 45px;
+            display: flex;
+            justify-content: space-between;
+            
+            textarea {
+                width: calc(100% - 65px);
+                border-radius: 30px 0 30px 30px;
+                border: 0;
+                resize: none;
+                padding: 15px;
+                background-color: darken($background-color, 3);
+                margin-top: 25px;
+                position: relative;
+
+                &:focus {
+                    border: 1px solid $background-color-darker;
+
+                    
+                }
+            }
+
+
+        }
+    }
+}

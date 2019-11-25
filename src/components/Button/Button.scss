@@ -3,19 +3,19 @@
 .reax-btn {
     border: none;
     outline: none;
-    background: darken($primary, 15);
     color: white;
     padding: 8px 20px;
     border-radius: 30px;
     box-shadow: 0 3px 6px darken($primary, 15);
     transition: all ease .5s;
 
+
     &:hover {
-        background: darken($primary, 20);
+        background: darken($primary, 10);
     }
 
     &:active {
-        background: darken($primary, 20);
+        background: darken($primary, 10);
         box-shadow: none;
     }
 }

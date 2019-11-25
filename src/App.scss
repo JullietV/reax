@@ -32,3 +32,9 @@ h1, h2, h3 {
 .App-link {
   color: #09d3ac;
 }
+
+.dark {
+  h1, h2, h3 {
+    color: $background-color;
+  }
+}
