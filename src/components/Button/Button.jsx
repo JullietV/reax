@@ -2,8 +2,9 @@ import React from 'react';
 import './Button.scss'
 
 const Button = (props) => {
+    // emitir evento de click en el boton
     return (
-        <button className="reax-btn">
+        <button onClick={props.onButtonClick} className="reax-btn">
             {props.text}
         </button>
     );

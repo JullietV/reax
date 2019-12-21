@@ -1,12 +1,22 @@
-import React, {useState} from 'react';
-import './Login.scss'
+import React, {useState, useEffect} from 'react';
+import {NavLink} from 'react-router-dom';
+import './Login.scss';
 
-import Input from '../Input/Input'
-import Button from '../Button/Button'
+import Input from '../Input/Input';
+import Button from '../Button/Button';
+import Loader from '../loader/Loader';
+import {MDBIcon} from 'mdbreact';
 
-const Login = () => {
+import routes from '../../routes';
+import {useDispatch} from 'react-redux';
+import {loginAsyncActionCreator} from '../../store/modules/auth/actions';
+
+
+const Login = (props) => {
+    const {auth} = props
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
+    const dispatch = useDispatch();
     
     const handleUserChange = (event) => {
         event.persist();
@@ -18,6 +28,16 @@ const Login = () => {
         setPassword(event.target.value);
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const data = {
+            email: user,
+            password
+        }
+
+        dispatch(loginAsyncActionCreator(data))
+    }
+
     return (
         <div className="reax-login">
             <h1>Inicia sesión</h1>
@@ -25,17 +45,26 @@ const Login = () => {
             Consequuntur aliquam perferendis, vitae neque quia enim facere accusamus, 
             numquam est voluptate voluptatibus dolores sed officiis, beatae a asperiores unde debitis quas.</p>
             <Input 
-            placeholder="Usuario" 
+            placeholder="Email" 
             value={user} 
             type="text"
+            disabled={auth.loading}
             onInputChange={handleUserChange}></Input>
             <Input
             placeholder="Contraseña"
             value={password} 
             type="password"
+            disabled={auth.loading}
             onInputChange={handlePasswordChange}
             ></Input>
-            <Button text="Iniciar sesión"></Button>
+            {auth.errorMessage ? <p className="reax-auth-error"> <MDBIcon icon="exclamation-circle" /> {auth.errorMessage}</p> : '' }
+            {auth.loading 
+            ? <div className="reax-auth-loader-wrapper"><Loader /></div>
+            : <ul className="reax-login-actions">
+                <li><Button onButtonClick={handleSubmit} text="Iniciar sesión"/></li>
+                <li><NavLink to={routes.home}>Volver al inicio</NavLink></li>
+            </ul>
+            }
         </div>
     );
 }

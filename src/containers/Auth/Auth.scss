@@ -6,6 +6,7 @@
     color: $body-text;
 
     &-wrapper {
+        max-width: 580px;
         height: 100vh;
         background: lighten($background-color, 3);
         display: flex;
@@ -47,6 +48,36 @@
 
             &:hover {
                 text-decoration: none;
+            }
+        }
+    }
+
+    &-form {
+        margin: 0 45px;
+    }
+
+    &-loader-wrapper {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    &-error {
+        margin-top: 10px;
+        text-align: center;
+        color: red;
+    }
+}
+
+.dark {
+    .reax-auth {
+        &-wrapper {
+            background-color: $titles;
+        }
+
+        &-selection-type {
+            a.active {
+                color: $primary;
             }
         }
     }

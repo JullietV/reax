@@ -6,9 +6,9 @@ import {
     Col
 } from 'reactstrap';
 
-import Navbar from '../navbar/Navbar';
-import Footer from '../footer/Footer';
-import Post from '../post/Post';
+import Navbar from '../../components/navbar/Navbar';
+import Footer from '../../components/footer/Footer';
+import Post from '../../components/post/Post';
 
 /**
  * Blog

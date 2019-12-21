@@ -1,8 +1,11 @@
-import React, {useState} from 'react'
-import './SignIn.scss'
+import React, {useState} from 'react';
+import {NavLink} from 'react-router-dom';
+import './SignIn.scss';
 
-import Input from '../Input/Input'
-import Button from '../Button/Button'
+import Input from '../Input/Input';
+import Button from '../Button/Button';
+
+import routes from '../../routes';
 
 const SignIn = () => {
     const [inputs, setInputs] = useState({})
@@ -52,8 +55,10 @@ const SignIn = () => {
             name="confirmPassword"
             onInputChange={handleInputChange}
             ></Input>
-
-            <Button text="Registrate"></Button>
+            <ul className="reax-sign-in-actions">
+                <li><Button text="Registrate"></Button></li>
+                <li><NavLink to={routes.home}>Volver al inicio</NavLink></li>
+            </ul>
         </div>
     )
 }

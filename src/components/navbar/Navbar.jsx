@@ -1,8 +1,12 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 import './Navbar.scss';
 
 import {Container,  Row} from 'reactstrap';
 import {MDBIcon} from 'mdbreact';
+import {NavLink} from 'react-router-dom';
+
+import routes from '../../routes';
 
 /**
  * Navbar
@@ -11,6 +15,7 @@ import {MDBIcon} from 'mdbreact';
  * @param {*} props 
  */
 const Navbar = (props) => {
+    const auth = useSelector(state => state.auth)
     return (
         <div className="reax-navbar">
             <Container>
@@ -31,11 +36,11 @@ const Navbar = (props) => {
                                     <MDBIcon far className="d-block d-md-none" icon="heart" /> <span className="d-none d-md-block">Acerca de</span>
                                     </li>
                                 </a>
-                                <a href="#">
+                                <NavLink to={auth.token ? routes.admin : routes.login }>
                                     <li>
                                         <MDBIcon far icon="user-circle" />
                                     </li>
-                                </a>
+                                </NavLink>
                             </ul>
                         </div>
                     </div>
