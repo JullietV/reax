@@ -5,6 +5,7 @@ import './Admin.scss';
 import {Container} from 'reactstrap';
 
 import Navbar from '../../components/navbar/Navbar';
+import Footer from '../../components/footer/Footer';
 import Button from '../../components/Button/Button';
 import PostsList from '../../components/posts-list/PostsList';
 import PostsEdit from '../../components/posts-edit/PostsEdit';
@@ -73,6 +74,7 @@ import Loader from '../../components/loader/Loader';
                         posts.loading ? <Loader /> : (editorIsActive ? <PostsEdit /> : <PostsList posts={posts.posts} />)
                     }
                 </div>
+                <Footer />
              </Container>
          </div>
      );
