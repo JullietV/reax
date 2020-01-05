@@ -2,6 +2,9 @@ import {
     AUTH_LOGIN_START,
     AUTH_LOGIN_OK,
     AUTH_LOGIN_NOK,
+    AUTH_SIGNIN_START,
+    AUTH_SIGNIN_OK,
+    AUTH_SIGNIN_NOK,
     AUTH_LOGOUT
 } from './const'
 
@@ -13,7 +16,8 @@ const initialState = {
     loading: false,
     success: false,
     error: false,
-    errorMessage: ''
+    errorMessage: '',
+    isRegistered: false
 }
 
 const reducer = (prevState = initialState, action) => {
@@ -42,16 +46,44 @@ const reducer = (prevState = initialState, action) => {
                 error: false,
                 success: true,
                 isLogin: true,
+                isRegistered: false,
                 token: action.payload
             }
-        case AUTH_LOGOUT:
+        case AUTH_SIGNIN_START:
             return {
                 ...prevState,
                 loading: true,
                 error: false,
                 success: false,
                 isLogin: false,
-                token: false
+                isRegistered: false
+            }
+        case AUTH_SIGNIN_NOK:
+            return {
+                ...prevState,
+                loading: false,
+                error: true,
+                success: false,
+                errorMessage: action.payload,
+                isRegistered: false
+            }
+        case AUTH_SIGNIN_OK:
+            return {
+                ...prevState,
+                loading: false,
+                error: false,
+                success: true,
+                isRegistered: true
+            }
+        case AUTH_LOGOUT:
+            return {
+                ...prevState,
+                loading: false,
+                error: false,
+                success: false,
+                isLogin: false,
+                token: false,
+                isRegistered: false
             }
         default:
             return {

@@ -11,6 +11,7 @@ import { PrivateRoute } from './components/private-route/PrivateRoute';
 import routes from './routes';
 
 import Auth from './containers/Auth/Auth';
+import About from './containers/about/About';
 import Blog from './containers/blog/Blog';
 import Admin from './containers/admin/Admin';
 import SiteConfig from './components/site-config/SiteConfig';
@@ -63,6 +64,7 @@ class App extends Component {
               <Switch>
                 <Route path={routes.home} exact component={Blog} />
                 <Route path={routes.login} exact component={Auth} />
+                <Route path={routes.about} exact component={About} />
                 <PrivateRoute path={routes.admin} exact component={Admin} />
               </Switch>
             </Router>

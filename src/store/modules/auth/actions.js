@@ -1,16 +1,15 @@
-import React from 'react';
 import {
     AUTH_LOGIN_START,
     AUTH_LOGIN_OK,
     AUTH_LOGIN_NOK,
+    AUTH_SIGNIN_START,
+    AUTH_SIGNIN_OK,
+    AUTH_SIGNIN_NOK,
     AUTH_LOGOUT
 } from './const';
 
 import {parseJwt} from '../../../utils/parseJWT';
-import {login} from '../../../client/auth.client';
-import {Redirect} from 'react-router-dom';
-
-import routes from '../../../routes';
+import {login, signin} from '../../../client/auth.client';
 
 const ls = window.localStorage
 
@@ -26,6 +25,22 @@ const loginOkActionCreator = (token) => {
 const loginNokActionCreator = (errorMessage) => {
     return {
         type: AUTH_LOGIN_NOK,
+        payload: errorMessage
+    }
+}
+
+const signinRequestActionCreator = () => ({ type: AUTH_SIGNIN_START, payload: null})
+
+const signinOkActionCreator = (token) => {
+    return {
+        type: AUTH_SIGNIN_OK,
+        payload: token
+    }
+}
+
+const signinNokActionCreator = (errorMessage) => {
+    return {
+        type: AUTH_SIGNIN_NOK,
         payload: errorMessage
     }
 }
@@ -48,7 +63,7 @@ export const loginAsyncActionCreator = (user) => {
                 dispatch(loginOkActionCreator(parsed))
             }, 1000)
             ls.setItem('token', parsed)
-            return <Redirect to={routes.home} />
+            return data
         } catch(e) {
             const errorMessage = e.response.status === 400 ? 'El mail o la contraseña son incorrectos' : 'Ha ocurrido un error inesperado'
             setTimeout(() => {
@@ -57,5 +72,24 @@ export const loginAsyncActionCreator = (user) => {
             return false
         }
     
+    }
+}
+
+export const signinAsyncActionCreator = (user) => {
+    return async (dispatch, getStore) => {
+        dispatch(signinRequestActionCreator());
+        try {
+            const {data} = await signin(user)
+            setTimeout(() => {
+                dispatch(signinOkActionCreator())
+            }, 1000)
+            return data
+        } catch(e) {
+            const errorMessage = e.response.status === 400 ? 'El mail o la contraseña son incorrectos' : 'Ha ocurrido un error inesperado'
+            setTimeout(() => {
+                dispatch(signinNokActionCreator(errorMessage))
+            }, 1000)
+            return false
+        }
     }
 }

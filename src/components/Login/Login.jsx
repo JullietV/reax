@@ -8,7 +8,8 @@ import Loader from '../loader/Loader';
 import {MDBIcon} from 'mdbreact';
 
 import routes from '../../routes';
-import {useDispatch} from 'react-redux';
+import {Redirect} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 import {loginAsyncActionCreator} from '../../store/modules/auth/actions';
 
 
@@ -17,6 +18,7 @@ const Login = (props) => {
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
+    const isLogin = useSelector(store => store.auth.isLogin);
     
     const handleUserChange = (event) => {
         event.persist();
@@ -28,15 +30,24 @@ const Login = (props) => {
         setPassword(event.target.value);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const data = {
             email: user,
             password
         }
 
-        dispatch(loginAsyncActionCreator(data))
+        const res = await dispatch(loginAsyncActionCreator(data))
+
+        
     }
+
+    useEffect(() => {
+        if (isLogin) {
+            const p = props.parentProps;
+            p.history.push('/');
+        }
+    }, [isLogin, props.parentProps])
 
     return (
         <div className="reax-login">

@@ -1,5 +1,52 @@
+@import '../../variables';
+
 .reax-admin {
+    min-height: 100vh;
     &-wrapper {
         padding: 100px 20px 0 20px;
+
+        &-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h2 {
+                position: relative;
+            }
+
+            h2::before {
+                content: '';
+                opacity: .8;
+                z-index: 1;
+                position: absolute;
+                bottom: 1px;
+                right: -4px;
+                display: block;
+                width: 40px;
+                height: 8px;
+                background: $primary;
+        
+            }
+
+            ul {
+                display: flex;
+                align-items: center;
+                li {
+                    margin-left: 30px;
+                    list-style: none;
+                }
+            }
+        }
+    }
+
+    h3 {
+        font-size: 1.5rem;
+      }
+
+}
+
+.dark {
+    .reax-admin {
+        background-color: $titles;
     }
 }

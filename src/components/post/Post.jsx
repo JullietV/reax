@@ -3,6 +3,7 @@ import './Post.scss';
 
 import Avatar from '../avatar/Avatar';
 import Comment from '../comment/Comment';
+import Button from '../Button/Button';
 
 /**
  * Post
@@ -14,7 +15,17 @@ class Post extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            expanded: true
+            expanded: false
+        }
+    }
+
+    handleExpansion = () => {
+        this.setState((state) => ({ expanded: !state.expanded}))
+    }
+
+    componentDidMount () {
+        if (this.props.expanded) {
+            this.setState((state) => ({expanded: this.props.expanded}))
         }
     }
 
@@ -25,10 +36,15 @@ class Post extends Component {
                     <a href="#"><h2>{this.props.title}</h2></a>
                     <p> {this.props.date} · Léelo en: {this.props.timeToRead}</p>
                 </div>
-                <div className="reax-post-body">
-                    {this.props.children}
+                {
+                    this.state.expanded ? <div className="reax-post-body"> {this.props.children}</div> : null
+                }
+                {this.props.image_url ? <div className="full-width reax-post-thumbnail" style={{backgroundImage: `url(${this.props.image_url})`}} alt={this.props.title}></div> : null}
+                <div className="reax-post-footer">
+                    <Button onButtonClick={this.handleExpansion} text={this.state.expanded ? 'Resumir' : 'Expandir'} />
                 </div>
-                <div className="reax-post-footer"></div>
+                {/* 
+                Los comentarios los vamos a guardar para una versión más avanzada
                 <div className="reax-post-comments">
                     <div className="reax-post-comments-create">
                         <textarea placeholder="Opiná po, galla!"></textarea>
@@ -46,7 +62,7 @@ class Post extends Component {
                     date="13/11/2019 - 12:30pm">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui minima reiciendis deleniti nobis quae expedita quia? Magnam minus soluta porro obcaecati eligendi culpa quia, voluptates nihil optio laudantium iste corporis?</p>
                     </Comment>
-                </div>
+                </div> */}
             </div>
         )
     };

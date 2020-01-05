@@ -9,13 +9,13 @@ import Credits from '../../components/Credits/Credits';
 import pinkWoman from '../../assets/img/woman.jpg';
 import mountain from '../../assets/img/mountain.jpg';
 
-const Auth = () => {
-    const [action, setAction] = useState('login')
+const Auth = (props) => {
+    const [action, setAction] = useState('register')
 
     const auth = useSelector(store => store.auth);
 
     const getBackground = (action) => {
-        if (action === 'login')
+        if (action === 'register')
         return pinkWoman;
         
         return mountain;
@@ -31,7 +31,7 @@ const Auth = () => {
                             <a onClick={() => setAction('register')} className={action === 'register' ? 'active' : ''}>Registrarse</a>
                         </div>
                         <div className="reax-auth-form">
-                            {action === 'login' ? <Login auth={auth}></Login> : <SignIn auth={auth}></SignIn>}
+                            {action === 'login' ? (<Login parentProps={props} auth={auth}></Login>): <SignIn parentProps={props} auth={auth}></SignIn>}
                         </div>
                         <div className="reax-auth-footer">
                             <Credits></Credits>

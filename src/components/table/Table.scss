@@ -1,0 +1,41 @@
+@import '../../variables';
+
+.reax-table {
+    width: 100%;
+
+    thead {
+        border-bottom: 2px solid;
+    }
+
+    td {
+        padding: 5px;
+    }
+
+    tbody {
+        tr {
+            background-color: $background-color;
+
+            &:nth-child(even) {
+                background-color: #fff;
+            }
+
+
+        }
+    }
+
+    &-actions-td {
+        a {
+            margin-left: 10px;
+        }
+    }
+}
+
+.dark {
+    .reax-table, td, tr {
+        color: $titles;
+    }
+
+    thead > tr, thead > tr > td {
+        color: $background-color;
+    }
+}

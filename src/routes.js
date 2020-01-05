@@ -1,6 +1,6 @@
 const routes = {
     home: '/',
-    postDetail: '/post/:id',
+    about: '/about',
     login: '/login',
     privateHome: '/private',
     admin: '/admin'

@@ -26,16 +26,16 @@ const Navbar = (props) => {
                         </div>
                         <div className="reax-navbar-menu">
                             <ul>
-                                <a href="#" className="active">
+                                <NavLink to={routes.home} exact>
                                     <li>
                                         <MDBIcon className="d-block d-md-none" icon="envelope-open-text" /> <span className="d-none d-md-block">Historias</span> 
                                     </li>
-                                </a>
-                                <a href="#">
+                                </NavLink>
+                                <NavLink to={routes.about}>
                                     <li>
                                     <MDBIcon far className="d-block d-md-none" icon="heart" /> <span className="d-none d-md-block">Acerca de</span>
                                     </li>
-                                </a>
+                                </NavLink>
                                 <NavLink to={auth.token ? routes.admin : routes.login }>
                                     <li>
                                         <MDBIcon far icon="user-circle" />
