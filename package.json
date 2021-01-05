@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "http://jullietv.github.io/reax",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "mdbreact": "^4.22.1",
     "node-sass": "^4.13.0",
